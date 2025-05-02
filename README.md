@@ -23,4 +23,5 @@ A modern **React.js** application using **React Query**, **ShadCN**, and **Tailw
 - Optimistic UI updates for smooth UX
 - Styled with ShadCN and TailwindCSS
 - Toast notifications for user feedback
+- Uses mock.api for storing data 
 
