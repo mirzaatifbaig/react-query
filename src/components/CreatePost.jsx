@@ -8,7 +8,6 @@ import { toast } from "sonner"
 import {useNavigate} from "react-router-dom";
 const createPost = async (newPost) => {
     const response = await axios.post("/jobs", newPost);
-    console.log(response.data);
     return response.data;
 };
 
