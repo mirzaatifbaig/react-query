@@ -6,6 +6,7 @@ import Error from "@/components/Error.jsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {SharedLayout} from "@/components/SharedLayout";
 import Navbar from "@/components/Navbar";
+import {Toaster} from "sonner";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                     <Route path="*" element={<Error/>}/>
                 </Route>
             </Routes>
+            <Toaster position="bottom-right" richColors />
         </BrowserRouter>
     );
 }

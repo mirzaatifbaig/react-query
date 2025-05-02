@@ -1,16 +1,19 @@
 import {useState} from "react";
-import axios from "axios";
+import axios from "../axios.jsx";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-
+import { toast } from "sonner"
+import {useNavigate} from "react-router-dom";
 const createPost = async (newPost) => {
     const response = await axios.post("/jobs", newPost);
+    console.log(response.data);
     return response.data;
 };
 
 const CreatePost = () => {
+    const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [job, setJob] = useState("");
     const [type, setType] = useState("");
@@ -28,8 +31,10 @@ const CreatePost = () => {
         },
         onSuccess: (data, _, context) => {
             queryClient.setQueryData(["jobs"], (old) =>
-                old.map((job) => (job.id === context.fakePost.id ? data : job)),
+                old.map((job) => (job.id === context.fakePost.id ? data : job))
             );
+
+            toast(`Job ${data.title} created successfully in ${data.area}.`);
         },
         onError: (_, __, context) => {
             if (context?.previousJobs) {
@@ -38,6 +43,7 @@ const CreatePost = () => {
         },
         onSettled: () => {
             queryClient.invalidateQueries(["jobs"]);
+            navigate("/");
         },
     });
 
