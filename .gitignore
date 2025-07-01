@@ -12,6 +12,8 @@ node_modules
 dist
 dist-ssr
 *.local
+pnpm-workspace.yaml
+pnpm-lock.yaml
 
 # Editor directories and files
 .vscode/*
