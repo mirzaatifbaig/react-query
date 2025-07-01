@@ -2,6 +2,8 @@
 
 A modern **React.js** application using **React Query**, **ShadCN**, and **TailwindCSS** to manage a list of job postings. It supports viewing all jobs, creating a new job, and retrieving a job by its ID.
 
+YOU HAVE TO SET UP YOUR MOCK.API FIRST OR ELSE YOU ARE GOING TO SEE A STATIC WEBSITE.
+
 ---
 
 ## ⚙️ Tech Stack
